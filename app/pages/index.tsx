@@ -1,7 +1,17 @@
 import { Grid, GridItem } from "@chakra-ui/react"
+import login from "app/auth/mutations/login"
 import { LoginForm } from "app/core/components"
 import Layout from "app/core/layouts/Layout"
-import { BlitzPage, Link, Routes, useSession } from "blitz"
+import {
+  AuthenticationError,
+  BlitzPage,
+  Link,
+  Routes,
+  useMutation,
+  useRouter,
+  useSession,
+} from "blitz"
+import { FORM_ERROR } from "final-form"
 import { Suspense } from "react"
 
 /*
@@ -10,9 +20,31 @@ import { Suspense } from "react"
  */
 
 const LoginOrTop = () => {
+  const router = useRouter()
   const session = useSession()
-  console.log({ session })
-  if (!session.userId) return <LoginForm />
+  const [loginMutation] = useMutation(login)
+
+  if (!session.userId)
+    return (
+      <LoginForm
+        onSubmit={async (values) => {
+          try {
+            const user = await loginMutation(values)
+            const next = router.query.next ? decodeURIComponent(router.query.next as string) : "/"
+            router.push(next)
+          } catch (error: any) {
+            if (error instanceof AuthenticationError) {
+              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+            } else {
+              return {
+                [FORM_ERROR]:
+                  "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+              }
+            }
+          }
+        }}
+      />
+    )
   return (
     <>
       <Grid h={"200px"} templateColumns={"repeat(5, 1fr)"} templateRows={"repeat(2, 1fr)"} gap={4}>

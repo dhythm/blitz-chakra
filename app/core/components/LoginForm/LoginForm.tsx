@@ -13,8 +13,14 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react"
 import { FC } from "react"
+import { Field } from "react-final-form"
+import Form from "../Form"
 
-export const LoginForm: FC = () => {
+type Props = {
+  onSubmit: (value: { email: string; password: string }) => void
+}
+
+export const LoginForm: FC<Props> = ({ onSubmit }) => {
   return (
     <Flex
       minH={"100vh"}
@@ -30,35 +36,46 @@ export const LoginForm: FC = () => {
           </Text>
         </Stack>
         <Box rounded={"lg"} bg={useColorModeValue("white", "gray.700")} boxShadow={"lg"} p={8}>
-          <Stack spacing={4}>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" />
-            </FormControl>
-            <Stack spacing={10}>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}
-              >
-                <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.400"}>Forgot password?</Link>
+          <Form onSubmit={onSubmit}>
+            <Stack spacing={4}>
+              <FormControl id="email">
+                <FormLabel>Email address</FormLabel>
+                <Field name="email">
+                  {({ input: { value, onChange } }) => (
+                    <Input type="email" value={value} onChange={onChange} />
+                  )}
+                </Field>
+              </FormControl>
+              <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+                <Field name="password">
+                  {({ input: { value, onChange } }) => (
+                    <Input type="password" value={value} onChange={onChange} />
+                  )}
+                </Field>
+              </FormControl>
+              <Stack spacing={10}>
+                <Stack
+                  direction={{ base: "column", sm: "row" }}
+                  align={"start"}
+                  justify={"space-between"}
+                >
+                  <Checkbox>Remember me</Checkbox>
+                  <Link color={"blue.400"}>Forgot password?</Link>
+                </Stack>
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                  type="submit"
+                >
+                  Sign in
+                </Button>
               </Stack>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-              >
-                Sign in
-              </Button>
             </Stack>
-          </Stack>
+          </Form>
         </Box>
       </Stack>
     </Flex>
