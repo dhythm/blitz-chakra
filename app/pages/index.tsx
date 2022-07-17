@@ -1,7 +1,7 @@
 import { Grid, GridItem } from "@chakra-ui/react"
 import { LoginForm } from "app/core/components"
 import Layout from "app/core/layouts/Layout"
-import { BlitzPage, useSession } from "blitz"
+import { BlitzPage, Link, Routes, useSession } from "blitz"
 import { Suspense } from "react"
 
 /*
@@ -14,14 +14,21 @@ const LoginOrTop = () => {
   console.log({ session })
   if (!session.userId) return <LoginForm />
   return (
-    <Grid h={"200px"} templateColumns={"repeat(5, 1fr)"} templateRows={"repeat(2, 1fr)"} gap={4}>
-      <GridItem rowSpan={2} colSpan={1} bg={"blue.500"} />
-      <GridItem colSpan={1} bg={"blue.500"} />
-      <GridItem colSpan={1} bg={"blue.500"} />
-      <GridItem colSpan={1} bg={"blue.500"} />
-      <GridItem colSpan={1} bg={"blue.500"} />
-      <GridItem colSpan={4} bg={"blue.500"} />
-    </Grid>
+    <>
+      <Grid h={"200px"} templateColumns={"repeat(5, 1fr)"} templateRows={"repeat(2, 1fr)"} gap={4}>
+        <GridItem rowSpan={2} colSpan={1} bg={"blue.500"} />
+        <GridItem colSpan={1} bg={"blue.500"} />
+        <GridItem colSpan={1} bg={"blue.500"} />
+        <GridItem colSpan={1} bg={"blue.500"} />
+        <GridItem colSpan={1} bg={"blue.500"} />
+        <GridItem colSpan={4} bg={"blue.500"} />
+      </Grid>
+      <Link href={Routes.ProductsPage()}>
+        <a className="button small">
+          <strong>Products</strong>
+        </a>
+      </Link>
+    </>
   )
 }
 
