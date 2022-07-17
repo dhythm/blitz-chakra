@@ -26,24 +26,31 @@ const LoginOrTop = () => {
 
   if (!session.userId)
     return (
-      <LoginForm
-        onSubmit={async (values) => {
-          try {
-            const user = await loginMutation(values)
-            const next = router.query.next ? decodeURIComponent(router.query.next as string) : "/"
-            router.push(next)
-          } catch (error: any) {
-            if (error instanceof AuthenticationError) {
-              return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
-            } else {
-              return {
-                [FORM_ERROR]:
-                  "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+      <>
+        <LoginForm
+          onSubmit={async (values) => {
+            try {
+              const user = await loginMutation(values)
+              const next = router.query.next ? decodeURIComponent(router.query.next as string) : "/"
+              router.push(next)
+            } catch (error: any) {
+              if (error instanceof AuthenticationError) {
+                return { [FORM_ERROR]: "Sorry, those credentials are invalid" }
+              } else {
+                return {
+                  [FORM_ERROR]:
+                    "Sorry, we had an unexpected error. Please try again. - " + error.toString(),
+                }
               }
             }
-          }
-        }}
-      />
+          }}
+        />
+        <Link href={Routes.ProductsPage()}>
+          <a className="button small">
+            <strong>Products</strong>
+          </a>
+        </Link>
+      </>
     )
   return (
     <>

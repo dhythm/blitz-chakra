@@ -1,11 +1,12 @@
 import { Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react"
 import Layout from "app/core/layouts/Layout"
+import getProducts from "app/product/queries/getProducts"
 import { BlitzPage, Link, Routes, useQuery } from "blitz"
-import getProducts from "../queries/getProducts"
 
 const ProductsPage: BlitzPage = () => {
   const [products] = useQuery(getProducts, null)
 
+  if (!products) return null
   return (
     <>
       <TableContainer>
