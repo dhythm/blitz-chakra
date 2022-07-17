@@ -4,7 +4,7 @@ import db from "db"
 
 export default async function getProducts(_ = null, { session }: Ctx) {
   const products = await db.product.findMany()
-  console.log({ products })
+
   return products.map(({ price, amount, point, ...rest }) => ({
     ...rest,
     price: convertBigIntToNumber(price),
