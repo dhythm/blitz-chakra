@@ -1,6 +1,7 @@
-import { Head, BlitzLayout } from "blitz"
+import { BlitzLayout, Head } from "blitz"
+import { ReactNode } from "react"
 
-const Layout: BlitzLayout<{ title?: string }> = ({ title, children }) => {
+const Layout: BlitzLayout<{ title?: string; children?: ReactNode }> = ({ title, children }) => {
   return (
     <>
       <Head>
