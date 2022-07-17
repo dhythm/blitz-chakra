@@ -6,7 +6,6 @@ import { BlitzPage, Link, Routes, useQuery } from "blitz"
 const ProductsPage: BlitzPage = () => {
   const [products] = useQuery(getProducts, null)
 
-  if (!products) return null
   return (
     <>
       <TableContainer>

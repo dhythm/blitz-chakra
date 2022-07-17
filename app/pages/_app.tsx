@@ -1,15 +1,15 @@
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import LoginForm from "app/auth/components/LoginForm"
 import {
   AppProps,
-  ErrorBoundary,
-  ErrorComponent,
   AuthenticationError,
   AuthorizationError,
+  ErrorBoundary,
+  ErrorComponent,
   ErrorFallbackProps,
   useQueryErrorResetBoundary,
 } from "blitz"
-import LoginForm from "app/auth/components/LoginForm"
-
-import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import { Suspense } from "react"
 
 const colors = {
   brand: {
@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
         FallbackComponent={RootErrorFallback}
         onReset={useQueryErrorResetBoundary().reset}
       >
-        {getLayout(<Component {...pageProps} />)}
+        <Suspense fallback="Loading...">{getLayout(<Component {...pageProps} />)}</Suspense>
       </ErrorBoundary>
     </ChakraProvider>
   )

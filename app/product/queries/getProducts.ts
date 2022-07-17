@@ -2,8 +2,9 @@ import { convertBigIntToNumber } from "app/utils/common/converter"
 import { Ctx } from "blitz"
 import db from "db"
 
-const getProducts = async (_ = null, { session }: Ctx) => {
+export default async function getProducts(_ = null, { session }: Ctx) {
   const products = await db.product.findMany()
+  console.log({ products })
   return products.map(({ price, amount, point, ...rest }) => ({
     ...rest,
     price: convertBigIntToNumber(price),
@@ -11,4 +12,3 @@ const getProducts = async (_ = null, { session }: Ctx) => {
     point,
   }))
 }
-export default getProducts
