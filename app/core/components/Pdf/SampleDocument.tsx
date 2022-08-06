@@ -1,9 +1,11 @@
 import { PdfDocument, PdfFont, PdfPage, PdfText, PdfView } from "."
 
-import NasuRegular from "../../../../public/fonts/Nasu-Regular.ttf"
 // PdfFont.register({ family: "Nasu-Regular", src: "/fonts/Nasu-Regular.ttf" })
-PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
 // PdfFont.register({ family: "Nasu-Bold", src: "/fonts/Nasu-Bold.ttf" })
+
+// import NasuRegular from "../../../../public/fonts/Nasu-Regular.ttf"
+import NasuRegular from "app/assets/fonts/Nasu-Regular.ttf"
+PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
 
 export const SampleDocument = () => (
   <PdfDocument>
