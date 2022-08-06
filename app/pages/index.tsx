@@ -1,7 +1,8 @@
-import { Grid, GridItem } from "@chakra-ui/react"
+import { Button, Grid, GridItem } from "@chakra-ui/react"
 import login from "app/auth/mutations/login"
 import { LoginForm } from "app/core/components"
 import Layout from "app/core/layouts/Layout"
+import createPdf from "app/pdfs/mutations/createPdf"
 import {
   AuthenticationError,
   BlitzPage,
@@ -23,6 +24,7 @@ const LoginOrTop = () => {
   const router = useRouter()
   const session = useSession()
   const [loginMutation] = useMutation(login)
+  const [createPdfMutation] = useMutation(createPdf)
 
   if (!session.userId)
     return (
@@ -45,11 +47,19 @@ const LoginOrTop = () => {
             }
           }}
         />
-        <Link href={Routes.ProductsPage()}>
-          <a className="button small">
-            <strong>Products</strong>
-          </a>
-        </Link>
+        <Button
+          bg={"blue.400"}
+          color={"white"}
+          _hover={{
+            bg: "blue.500",
+          }}
+          onClick={async () => {
+            const res = await createPdfMutation()
+            console.log({ res })
+          }}
+        >
+          create PDF
+        </Button>
       </>
     )
   return (

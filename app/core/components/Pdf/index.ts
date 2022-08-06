@@ -5,3 +5,4 @@ export {
   Text as PdfText,
 } from "@react-pdf/renderer"
 export * from "./PdfView"
+export * from "./SampleDocument"
