@@ -54,7 +54,7 @@ const LoginOrTop = () => {
             bg: "blue.500",
           }}
           onClick={async () => {
-            const res = await createPdfMutation()
+            const res = await createPdfMutation({})
             console.log({ res })
           }}
         >

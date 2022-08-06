@@ -7,11 +7,16 @@ const CreatePdf = z.object({
   // name: z.string(),
 })
 
-export default resolver.pipe(resolver.zod(CreatePdf), resolver.authorize(), async (input) => {
-  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-  // const pdf = await db.pdf.create({ data: input })
-  ReactPDF.render(SampleDocument(), `${__dirname}/example.pdf`)
-  const pdf = null
+export default resolver.pipe(
+  resolver.zod(CreatePdf),
+  // resolver.authorize(),
+  async (input) => {
+    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
+    // const pdf = await db.pdf.create({ data: input })
+    ReactPDF.render(SampleDocument(), `${__dirname}/example.pdf`)
+    console.log(__dirname)
+    const pdf = null
 
-  return pdf
-})
+    return pdf
+  }
+)
