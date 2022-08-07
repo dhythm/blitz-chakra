@@ -1,6 +1,6 @@
 import ReactPDF from "@react-pdf/renderer"
 import { SampleDocument } from "app/core/components"
-import { Base64Decode } from "base64-stream"
+import { Base64Encode } from "base64-stream"
 import { resolver } from "blitz"
 import { promises as fs } from "fs"
 import { z } from "zod"
@@ -33,9 +33,35 @@ export default resolver.pipe(
       "binary"
     ).toString("base64")
 
-    stream.pipe(new Base64Decode())
+    // var data = ""
+    // stream
+    //   .pipe(new Base64Encode())
+    //   .on("data", (chunk) => {
+    //     data += chunk
+    //   })
+    //   .on("end", () => {
+    //     console.log({ data })
+    //   })
+
+    const promise = () => {
+      var data = ""
+      return new Promise((resolve, reject) => {
+        stream
+          .pipe(new Base64Encode())
+          .on("data", (chunk) => {
+            data += chunk
+          })
+          .on("end", () => {
+            resolve(data)
+          })
+          .on("error", (error) => reject(error))
+      })
+    }
+    const data = await promise()
 
     await fs.rm(fileName, { force: true })
+    console.log({ base64str })
+    console.log({ data })
 
     const pdf = base64str
 
