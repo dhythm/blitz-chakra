@@ -36,6 +36,7 @@
     "@emotion/styled": "11.9.3",
     "@prisma/client": "3.16.0-integration-tmp-revert-node14.1",
     "@react-pdf/renderer": "2.3.0",
+    "base64-stream": "1.0.0",
     "blitz": "0.45.5",
     "decimal.js": "10.3.1",
     "final-form": "4.20.7",
