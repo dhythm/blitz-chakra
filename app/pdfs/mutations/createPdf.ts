@@ -38,6 +38,8 @@ export default resolver.pipe(
     console.log({ fileName })
     console.log({ base64str })
 
+    await fs.rm(fileName, { force: true })
+
     const pdf = base64str
 
     return pdf
