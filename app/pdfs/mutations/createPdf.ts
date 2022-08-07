@@ -35,9 +35,6 @@ export default resolver.pipe(
 
     stream.pipe(new Base64Decode())
 
-    console.log({ fileName })
-    console.log({ base64str })
-
     await fs.rm(fileName, { force: true })
 
     const pdf = base64str
