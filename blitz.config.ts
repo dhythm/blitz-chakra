@@ -17,6 +17,9 @@ const config: BlitzConfig = {
       //   loader: "file-loader",
       test: /\.(woff|woff2|eot|ttf|otf)$/,
       loader: "url-loader",
+      options: {
+        limit: 10_000_000,
+      },
     })
     return config
   },
