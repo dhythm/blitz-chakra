@@ -16,6 +16,7 @@ export default resolver.pipe(
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     // const pdf = await db.pdf.create({ data: input })
     const fileName = `${__dirname}/example.pdf`
+    console.log({ fileName })
     await ReactPDF.render(SampleDocument(), fileName)
 
     const stream = await ReactPDF.renderToStream(SampleDocument())
