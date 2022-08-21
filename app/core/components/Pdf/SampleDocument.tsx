@@ -21,16 +21,16 @@ export const SampleDocument = () => (
   <PdfDocument>
     <PdfPage orientation="portrait">
       <PdfView>
-        <PdfText>株式会社トゥ御中</PdfText>
+        <PdfText>株式会社御中</PdfText>
       </PdfView>
       <PdfView alignItems="flex-end">
         <PdfText>2022年8月1日</PdfText>
       </PdfView>
       <PdfView alignItems="flex-end">
-        <PdfText>株式会社フロム</PdfText>
+        <PdfText>株式会社弊社</PdfText>
       </PdfView>
       <PdfView alignItems="center" marginY={3}>
-        <PdfText>依頼</PdfText>
+        <PdfText>依頼書</PdfText>
       </PdfView>
       <PdfView marginBottom={3}>
         <PdfText>
