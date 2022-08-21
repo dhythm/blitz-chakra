@@ -14,7 +14,7 @@ export const PdfPage: FC<Props> = ({ children, ...props }) => (
     {...props}
     style={{
       backgroundColor: "#FFFFFF",
-      fontFamily: "Noto Sans JP",
+      fontFamily: "Nasu-Regular",
       padding: 50,
     }}
   >
