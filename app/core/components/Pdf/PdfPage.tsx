@@ -1,9 +1,9 @@
 import { Page } from "@react-pdf/renderer"
 import { ComponentProps, FC, ReactNode } from "react"
 
-import NasuRegular from "app/assets/fonts/Nasu-Regular.ttf"
-import { PdfFont } from "."
-PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
+// import NasuRegular from "app/assets/fonts/Nasu-Regular.ttf"
+// import NasuRegular from "./fonts/Nasu-Regular.ttf"
+// PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
 
 type Props = {
   children: ReactNode
@@ -14,7 +14,7 @@ export const PdfPage: FC<Props> = ({ children, ...props }) => (
     {...props}
     style={{
       backgroundColor: "#FFFFFF",
-      fontFamily: "Nasu-Regular",
+      fontFamily: "Noto Sans JP",
       padding: 50,
     }}
   >

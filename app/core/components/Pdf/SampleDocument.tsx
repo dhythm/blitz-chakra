@@ -4,15 +4,22 @@ import { PdfDocument, PdfFont, PdfPage, PdfRow, PdfText, PdfView } from "."
 // PdfFont.register({ family: "Nasu-Bold", src: "/fonts/Nasu-Bold.ttf" })
 // import NasuRegular from "../../../../public/fonts/Nasu-Regular.ttf"
 // import NasuRegular from "app/assets/fonts/Nasu-Regular.ttf"
+import NasuBold from "./fonts/Nasu-Bold.ttf"
 import NasuRegular from "./fonts/Nasu-Regular.ttf"
 PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
+// PdfFont.register({
+//   family: "Noto Sans JP",
+//   src: "https://fonts.gstatic.com/s/notosansjp/v42/-F6pfjtqLzI2JPCgQBnw7HFQei0q1A.otf",
+// })
+// PdfFont.register({
+//   family: "Hannari",
+//   src: "https://fonts.gstatic.com/ea/hannari/v1/Hannari-Regular.ttf",
+// })
+PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
 
 export const SampleDocument = () => (
   <PdfDocument>
-    <PdfPage
-      orientation="portrait"
-      style={{ backgroundColor: "#FFFFFF", fontFamily: "Nasu-Regular", padding: 50 }}
-    >
+    <PdfPage orientation="portrait">
       <PdfView>
         <PdfText>株式会社トゥ御中</PdfText>
       </PdfView>
