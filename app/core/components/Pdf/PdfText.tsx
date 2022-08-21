@@ -1,9 +1,10 @@
 import { Text } from "@react-pdf/renderer"
 import { FC, ReactNode } from "react"
-
-import NasuBold from "app/assets/fonts/Nasu-Bold.ttf"
 import { PdfFont } from "."
-PdfFont.register({ family: "Nasu-Regular", src: NasuBold })
+
+// import NasuBold from "app/assets/fonts/Nasu-Bold.ttf"
+// PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
+PdfFont.register({ family: "Nasu-Bold", src: require("app/assets/fonts/Nasu-Bold.ttf") })
 
 type Props = {
   children: ReactNode

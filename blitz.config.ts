@@ -13,13 +13,17 @@ const config: BlitzConfig = {
     // Perform customizations to webpack config
     // Important: return the modified config
     config.module.rules.push({
-      //   test: /\.(woff|woff2|eot|ttf|otf)$/,
-      //   loader: "file-loader",
       test: /\.(woff|woff2|eot|ttf|otf)$/,
-      loader: "url-loader",
-      options: {
-        limit: 10_000_000,
-      },
+      loader: "file-loader",
+      // options: {
+      //   name: "[name].[ext]",
+      //   outputPath: "fonts/",
+      //   publicPath: "./fonts/",
+      // },
+      // loader: "url-loader",
+      // options: {
+      //   limit: 6_000_000,
+      // },
     })
     return config
   },

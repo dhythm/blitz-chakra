@@ -1,6 +1,7 @@
-import { RouterContext, BlitzRouter, BlitzProvider } from "blitz"
 import { render as defaultRender } from "@testing-library/react"
 import { renderHook as defaultRenderHook } from "@testing-library/react-hooks"
+import { BlitzProvider, BlitzRouter, RouterContext } from "blitz"
+import { ReactNode } from "react"
 
 export * from "@testing-library/react"
 
@@ -30,7 +31,7 @@ export function render(
 ) {
   if (!wrapper) {
     // Add a default context wrapper if one isn't supplied from the test
-    wrapper = ({ children }) => (
+    wrapper = ({ children }: { children: ReactNode }) => (
       <BlitzProvider dehydratedState={dehydratedState}>
         <RouterContext.Provider value={{ ...mockRouter, ...router }}>
           {children}
