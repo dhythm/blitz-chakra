@@ -15,11 +15,11 @@ const config: BlitzConfig = {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/,
       loader: "file-loader",
-      // options: {
-      //   name: "[name].[ext]",
-      //   outputPath: "fonts/",
-      //   publicPath: "./fonts/",
-      // },
+      options: {
+        name: "[name].[ext]",
+        outputPath: "fonts/",
+        publicPath: "./fonts/",
+      },
       // loader: "url-loader",
       // options: {
       //   limit: 6_000_000,

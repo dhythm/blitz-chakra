@@ -3,8 +3,8 @@ import { FC, ReactNode } from "react"
 import { PdfFont } from "."
 
 // import NasuBold from "app/assets/fonts/Nasu-Bold.ttf"
-// PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
-PdfFont.register({ family: "Nasu-Bold", src: require("app/assets/fonts/Nasu-Bold.ttf") })
+import NasuBold from "./fonts/Nasu-Bold.ttf"
+PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
 
 type Props = {
   children: ReactNode
