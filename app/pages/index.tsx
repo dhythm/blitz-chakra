@@ -15,6 +15,7 @@ import {
 } from "blitz"
 import { FORM_ERROR } from "final-form"
 import { Suspense } from "react"
+// import "./index.css"
 
 /*
  * This file is just for a pleasant getting started page for your new app.

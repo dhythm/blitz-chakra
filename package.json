@@ -42,9 +42,11 @@
     "final-form": "4.20.7",
     "framer-motion": "6.3.15",
     "next-fonts": "1.5.1",
+    "pdf-viewer-reactjs": "2.2.3",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-final-form": "6.5.9",
+    "react-pdf": "5.7.2",
     "zod": "3.17.3"
   },
   "devDependencies": {
@@ -61,8 +63,10 @@
     "@swc/core": "1.2.229",
     "@swc/helpers": "0.4.6",
     "@swc/jest": "0.2.22",
+    "@types/pdf-viewer-reactjs": "2.2.2",
     "@types/preview-email": "2.0.1",
     "@types/react": "18.0.0",
+    "@types/react-pdf": "5.7.2",
     "babel-loader": "8.2.5",
     "eslint": "8.18.0",
     "eslint-plugin-storybook": "0.5.13",
