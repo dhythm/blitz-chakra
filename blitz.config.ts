@@ -18,7 +18,8 @@ const config: BlitzConfig = {
       options: {
         name: "[name].[ext]",
         outputPath: "fonts/",
-        publicPath: "./fonts/",
+        // publicPath: "./fonts/",
+        publicPath: "/fonts/",
       },
       // loader: "url-loader",
       // options: {
