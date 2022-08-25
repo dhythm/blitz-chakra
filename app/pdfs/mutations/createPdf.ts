@@ -15,8 +15,12 @@ export default resolver.pipe(
   async (input) => {
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     // const pdf = await db.pdf.create({ data: input })
+    // const fonts = `${__dirname}/fonts/Nasu-Bold.ttf`
+    // const nasuRegular = await fs.readFile(fonts, { encoding: "base64url" })
+    // await fs.writeFile("output.txt", nasuRegular)
+
     const fileName = `${__dirname}/example.pdf`
-    console.log({ fileName })
+    console.log({ fileName, __filename })
     await ReactPDF.render(SampleDocument(), fileName)
 
     const stream = await ReactPDF.renderToStream(SampleDocument())
@@ -60,12 +64,23 @@ export default resolver.pipe(
     }
     const data = await promise()
 
-    await fs.rm(fileName, { force: true })
+    // await fs.rm(fileName, { force: true })
     console.log({ base64str })
     console.log({ data })
 
-    const pdf = base64str
-
-    return pdf
+    return "success"
   }
 )
+
+// export const config = {
+//   api: {
+//     responseLimit: "8mb",
+//   },
+// }
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "10mb",
+    },
+  },
+}

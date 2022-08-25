@@ -1,7 +1,6 @@
 import { Button, Grid, GridItem } from "@chakra-ui/react"
-import { PDFViewer } from "@react-pdf/renderer"
 import login from "app/auth/mutations/login"
-import { LoginForm, SampleDocument } from "app/core/components"
+import { LoginForm } from "app/core/components"
 import Layout from "app/core/layouts/Layout"
 import createPdf from "app/pdfs/mutations/createPdf"
 import {
@@ -62,9 +61,9 @@ const LoginOrTop = () => {
         >
           create PDF
         </Button>
-        <PDFViewer height={891} width={630}>
+        {/* <PDFViewer height={891} width={630}>
           <SampleDocument />
-        </PDFViewer>
+        </PDFViewer> */}
       </>
     )
   return (
