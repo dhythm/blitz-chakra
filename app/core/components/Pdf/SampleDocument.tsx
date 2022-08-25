@@ -2,9 +2,10 @@ import { PdfDocument, PdfFont, PdfPage, PdfRow, PdfText, PdfView } from "."
 
 import NasuBold from "./fonts/Nasu-Bold.ttf"
 import NasuRegular from "./fonts/Nasu-Regular.ttf"
-// const NasuBold = require("./fonts/Nasu-Bold.ttf").default
-// const NasuRegular = require("./fonts/Nasu-Regular.ttf").default
 PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
+PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
+// PdfFont.register({ family: "Nasu-Regular", src: "../static/fonts/Nasu-Regular.ttf" })
+// PdfFont.register({ family: "Nasu-Bold", src: "../static/fonts/Nasu-Bold.ttf" })
 // PdfFont.register({
 //   family: "Noto Sans JP",
 //   src: "https://fonts.gstatic.com/s/notosansjp/v42/-F6pfjtqLzI2JPCgQBnw7HFQei0q1A.otf",
@@ -13,7 +14,6 @@ PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
 //   family: "Hannari",
 //   src: "https://fonts.gstatic.com/ea/hannari/v1/Hannari-Regular.ttf",
 // })
-PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
 
 export const SampleDocument = () => {
   return (
