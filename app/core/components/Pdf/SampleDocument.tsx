@@ -1,16 +1,16 @@
 import { PdfDocument, PdfFont, PdfPage, PdfRow, PdfText, PdfView } from "."
 
-// import NasuBold from "./fonts/Nasu-Bold.ttf"
-// import NasuRegular from "./fonts/Nasu-Regular.ttf"
-// PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
-// PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
+import NasuBold from "./fonts/Nasu-Bold.ttf"
+import NasuRegular from "./fonts/Nasu-Regular.ttf"
+PdfFont.register({ family: "Nasu-Regular", src: NasuRegular })
+PdfFont.register({ family: "Nasu-Bold", src: NasuBold })
 
-import { fonts } from "./fonts"
-PdfFont.register({
-  family: "Nasu-Regular",
-  src: `data:font/ttf;base64,${fonts["Nasu-Regular.ttf"]}`,
-})
-PdfFont.register({ family: "Nasu-Bold", src: `data:font/ttf;base64,${fonts["Nasu-Bold.ttf"]}` })
+// import { fonts } from "./fonts"
+// PdfFont.register({
+//   family: "Nasu-Regular",
+//   src: `data:font/ttf;base64,${fonts["Nasu-Regular.ttf"]}`,
+// })
+// PdfFont.register({ family: "Nasu-Bold", src: `data:font/ttf;base64,${fonts["Nasu-Bold.ttf"]}` })
 
 // PdfFont.register({ family: "Nasu-Regular", src: "../static/fonts/Nasu-Regular.ttf" })
 // PdfFont.register({ family: "Nasu-Bold", src: "../static/fonts/Nasu-Bold.ttf" })
