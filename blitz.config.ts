@@ -1,4 +1,5 @@
 import { BlitzConfig, sessionMiddleware, simpleRolesIsAuthorized } from "blitz"
+const path = require("path")
 
 const config: BlitzConfig = {
   middleware: [
@@ -19,7 +20,7 @@ const config: BlitzConfig = {
       options: {
         name: "[name].[ext]",
         outputPath: `${isServer ? "../" : ""}fonts/`,
-        publicPath: "/fonts/",
+        publicPath: isServer ? `${path.join(__dirname)}/.next/fonts/` : `/fonts/`,
         //   // esModule: false,
       },
       // loader: "url-loader",
