@@ -1,18 +1,8 @@
 import { Button, Grid, GridItem } from "@chakra-ui/react"
 import login from "app/auth/mutations/login"
-import { LoginForm } from "app/core/components"
 import Layout from "app/core/layouts/Layout"
 import createPdf from "app/pdfs/mutations/createPdf"
-import {
-  AuthenticationError,
-  BlitzPage,
-  Link,
-  Routes,
-  useMutation,
-  useRouter,
-  useSession,
-} from "blitz"
-import { FORM_ERROR } from "final-form"
+import { BlitzPage, Link, Routes, useMutation, useRouter, useSession } from "blitz"
 import { Suspense } from "react"
 // import "./index.css"
 
@@ -30,7 +20,7 @@ const LoginOrTop = () => {
   if (!session.userId)
     return (
       <>
-        <LoginForm
+        {/* <LoginForm
           onSubmit={async (values) => {
             try {
               const user = await loginMutation(values)
@@ -47,7 +37,7 @@ const LoginOrTop = () => {
               }
             }
           }}
-        />
+        /> */}
         <Button
           bg={"blue.400"}
           color={"white"}
